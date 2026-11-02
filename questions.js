@@ -414,3 +414,103 @@ correctAnswer:2,
 explanation:"Audit records and activity reports can help investigate team lifecycle events, subject to event availability and retention."
 }
 ];
+
+// =====================================
+// MS-700 MIXED QUESTION FORMAT UPGRADE
+// =====================================
+
+// 1. Dropdown question
+questions[0].type = "dropdown";
+
+questions[0].question =
+    "A company is preparing Teams voice and video for 900 users across three offices. Which tool helps estimate network bandwidth requirements?";
+
+questions[0].explanation =
+    "Teams Network Planner helps administrators estimate network requirements based on users, locations and workloads.";
+
+
+// 2. Multiple-select question
+questions[2].type = "multipleSelect";
+
+questions[2].question =
+    "An organisation wants to protect sensitive information in Teams. Which TWO capabilities should it consider?";
+
+questions[2].options = [
+    "Data Loss Prevention",
+    "Retention Policies",
+    "Call Queues",
+    "Meeting Backgrounds"
+];
+
+questions[2].correctAnswers = [0, 1];
+
+questions[2].explanation =
+    "Data Loss Prevention can restrict sharing of sensitive information, while retention policies govern how long supported content is retained. These capabilities serve different compliance purposes.";
+
+
+// 3. Matching question
+questions[1].type = "matching";
+
+questions[1].question =
+    "Match each Microsoft Teams administration tool with its primary purpose.";
+
+questions[1].pairs = [
+    {
+        item: "Teams Network Planner",
+        answer: "Estimate network requirements"
+    },
+    {
+        item: "Call Analytics",
+        answer: "Investigate individual call quality"
+    },
+    {
+        item: "Call Quality Dashboard",
+        answer: "Analyse organisation-wide call quality"
+    },
+    {
+        item: "Microsoft 365 Network Connectivity Test",
+        answer: "Test connectivity to Microsoft 365"
+    }
+];
+
+questions[1].correctMatches = [0, 1, 2, 3];
+
+
+// 4. Ordering question
+questions[3].type = "ordering";
+
+questions[3].question =
+    "Arrange these troubleshooting activities in a sensible order when investigating poor Teams call quality.";
+
+questions[3].items = [
+    "Apply an appropriate corrective action",
+    "Collect the affected user's details and call information",
+    "Investigate call quality using available diagnostic tools",
+    "Verify whether call quality has improved"
+];
+
+questions[3].correctOrder = [1, 2, 0, 3];
+
+questions[3].explanation =
+    "Start by collecting information, investigate the issue, apply a corrective action and verify the outcome.";
+
+
+// 5. Case-study question
+questions[4].caseStudy = {
+    title: "Case Study: Contoso Corporation",
+    scenario:
+        "Contoso Corporation has 1,200 employees across three locations. The organisation is deploying Microsoft Teams and wants to improve security, manage external collaboration and maintain reliable meeting quality."
+};
+
+questions[4].type = "multipleChoice";
+
+
+// Set a default type for all remaining questions
+questions.forEach(question => {
+    if (!question.type) {
+        question.type = "multipleChoice";
+    }
+});
+
+console.log("MS-700 mixed question formats loaded.");
+
